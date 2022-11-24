@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CouleurController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VoitureController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+
+Route::resource('couleur', CouleurController::class);
+Route::resource('voiture', VoitureController::class);
